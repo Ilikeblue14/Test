@@ -1,75 +1,101 @@
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
 
-    body {
-      background: #f4f4f4;
-      color: #161616;
-    }
+body {
+  background: #f4f4f4;
+  color: #161616;
+}
 
-    header {
-      background: #241010;
-      color: #fff;
-      padding: 1rem 2rem;
-    }
+header {
+  background: #241010;
+  color: #fff;
+  padding: 1rem 2rem;
+}
 
-    nav {
-      display: flex;
-      justify-content: space-around;
-      background: #a00000;
-    }
+nav {
+  display: flex;
+  justify-content: space-around;
+  background: #a00000;
+  flex-wrap: wrap;
+}
 
-    nav a {
-      color: white;
-      padding: 1rem;
-      text-decoration: none;
-      transition: background 0.3s;
-    }
+nav a {
+  color: white;
+  padding: 1rem;
+  text-decoration: none;
+  transition: background 0.3s;
+}
 
-    nav a:hover {
-      background: #555;
-    }
+nav a:hover {
+  background: #555;
+}
 
-    .container {
-      padding: 2rem;
-    }
+.container {
+  padding: 2rem;
+}
 
-    .page {
-      display: none;
-    }
+.page {
+  display: none;
+}
 
-    .active {
-      display: block;
-    }
+.active {
+  display: block;
+}
 
+/* ✅ Responsive Grid */
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  width: 600px;
-  height: 600px;
+  gap: 5px;
+  max-width: 90vmin;
+  aspect-ratio: 1 / 1;
+  margin: 0 auto;
 }
 
+/* ✅ Responsive cells */
 .cell {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-sizing: border-box;
-}
-
-.cell img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: cover;
-}
-
-/* Selectively apply inner borders */
-.cell {
   border-top: 2px solid black;
   border-left: 2px solid black;
+  aspect-ratio: 1 / 1;
 }
 
-.cell:nth-child(-n+3) { border-top: none; }     /* First row */
-.cell:nth-child(3n+1) { border-left: none; }    /* First column */
+/* Remove borders from first row and column */
+.cell:nth-child(-n+3) { border-top: none; }
+.cell:nth-child(3n+1) { border-left: none; }
+
+/* ✅ Make images responsive */
+.cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* ✅ Optional: Improve mobile menu readability */
+@media (max-width: 600px) {
+  nav a {
+    flex: 1 0 100%;
+    text-align: center;
+    padding: 0.75rem;
+  }
+
+  .container {
+    padding: 1rem;
+  }
+
+  h1, h2 {
+    font-size: 1.5rem;
+  }
+}
+/* Center content inside the Tic Tac Toe game area */
+#projects {
+  text-align: center;
+}
+
